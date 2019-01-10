@@ -8,3 +8,10 @@
 			<td><%= @event.date %></td>
 		</tr>
 </table>
+
+<h1>Attendees</h1>
+<% if @event.attendees.any? %>
+	<% @event.attendees.each do |attendee| %>
+		<p><%= link_to attendee.name, attendee %></p>
+	<% end %>
+<% end %>

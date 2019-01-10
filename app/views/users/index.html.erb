@@ -1,5 +1,13 @@
-<h1>All users</h1>
-<% @users.each do |user| %>
-	<h3>User ID: <%= user.id %>   User Name: <%= user.name %></h3>
-<% end %>
+<h2>All users</h2>
+<table>
+	<tr>
+		<th>User Id</th>
+		<th>User Name</th>
+	</tr>
+	<% @users.each do |user| %>
+		<tr>
+			<td><%= user.id %></td> 
+			<td><%= link_to user.name, user %></td>
+		</tr>
+	<% end %>
 

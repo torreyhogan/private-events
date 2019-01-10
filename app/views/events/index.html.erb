@@ -1,5 +1,13 @@
-<h1>All events</h1>
-<% @events.each do |event| %>
-	<h3>Event ID: <%= event.id %>   Event Name: <%= event.name %></h3>
-<% end %>
+<h2>All events</h2>
+<table>
+	<tr>
+		<th>User Id</th>
+		<th>Event Name</th>
+	</tr>
+	<% @events.each do |event| %>
+		<tr>
+			<td><%= event.id %></td> 
+			<td><%= link_to event.name, event %></td>
+		</tr>
+	<% end %>
 

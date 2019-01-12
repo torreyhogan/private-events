@@ -4,12 +4,13 @@
 <table>
 	<tr>
 		<th>Created events</th>
-		<th>Attend events</th>
+		<th>Upcoming events</th>
+		<th>Past events</th>
 	</tr>
 	<td>
 		<table>
 			<tr>
-				<th>Event name</th>
+				<th>Event</th>
 				<th>Date</th>
 			</tr>
 			<% @user.created_events.each do |event| %>
@@ -23,16 +24,33 @@
 	<td>
 		<table>
 			<tr>
-				<th>Event name</th>
+				<th>Event</th>
 				<th>Date</th>
 			</tr>
-			<% @user.attend_events.each do |event| %>
+			<% if @upcoming_events != nil %>
+			<% @upcoming_events.each do |event| %>
 				<tr>
 					<td><%= link_to event.name, event %></td>
 					<td><%= event.date %></td>
 				</tr>
 			<% end %>
+			<% end %>
 		</table>
-		
 	</td>
+	<td>
+		<table>
+			<tr>
+				<th>Event</th>
+				<th>Date</th>
+			</tr>
+			<% if @previous_events != nil %>
+				<% @previous_events.each do |event| %>
+				<tr>
+					<td><%= link_to event.name, event %></td>
+					<td><%= event.date %></td>
+				</tr>
+			<% end %>
+			<% end %>
 </table>
+
+

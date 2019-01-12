@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
 
 	def index
-		@events = Event.all 
+		@events = Event.all
+		@past_events = @events.select { |event| event.past_event? } 
+		@upcoming_events = @events.select { |event| !event.past_event? }
 	end
 
 	def show

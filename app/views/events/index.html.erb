@@ -1,13 +1,18 @@
 <h2>All events</h2>
 <table>
 	<tr>
-		<th>User Id</th>
-		<th>Event Name</th>
+		<th>Past Events</th>
+		<th>Future Events</th>
 	</tr>
-	<% @events.each do |event| %>
-		<tr>
-			<td><%= event.id %></td> 
+	<tr>
+		<% @past_events.each do |event| %>
 			<td><%= link_to event.name, event %></td>
-		</tr>
-	<% end %>
+		<% end %>
+	</tr>
+	<tr>
+		<% @upcoming_events.each do |event| %>
+			<td><%= link_to event.name, event %></td>
+		<% end %>
+	</tr>
+	
 

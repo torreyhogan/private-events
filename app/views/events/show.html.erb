@@ -9,9 +9,27 @@
 		</tr>
 </table>
 
+<h1>Invite Attendees</h1>
+
+<% if current_user?(@event.user) %>
+	<%= form_for(:attendance, url: attendances_path) do |f| %>
+		<p>
+				<%= hidden_field_tag :event_id, @event.id %>
+				<%= hidden_field_tag :id, @event.user.id %>
+
+				<%= f.label "Enter guest's name:" %>
+				<%= f.text_field :guest_name %>
+
+				<%= f.submit "Invite" %>
+		</p>
+	<% end %>
+<% end %>
+
 <h1>Attendees</h1>
 <% if @event.attendees.any? %>
 	<% @event.attendees.each do |attendee| %>
 		<p><%= link_to attendee.name, attendee %></p>
 	<% end %>
 <% end %>
+
+
